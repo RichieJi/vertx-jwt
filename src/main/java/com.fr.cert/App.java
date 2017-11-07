@@ -7,13 +7,19 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.ext.web.Router;
 
 import java.util.Date;
 
 @SuppressWarnings("all")
-public class Server extends AbstractVerticle {
+public class App extends AbstractVerticle {
+
+    public static void main(String... args) {
+        Vertx vertx = Vertx.vertx();
+        vertx.deployVerticle(new App());
+    }
 
     // richie:随机生成的一个key，用于做测试
     private static byte[] key = MacProvider.generateKey().getEncoded();
