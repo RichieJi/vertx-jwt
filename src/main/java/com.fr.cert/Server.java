@@ -73,7 +73,7 @@ public class Server extends AbstractVerticle {
         if (authorization == null) {
             return "";
         }
-        // Auth2认证的格式规范，必须以Bearer 开头
+        // OAuth2认证的格式规范，必须以Bearer 开头
         if (authorization.contains("Bearer ")) {
             authorization = authorization.substring(7);
         }
